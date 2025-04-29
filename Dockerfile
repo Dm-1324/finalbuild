@@ -6,14 +6,21 @@ RUN apt-get update && \
     ffmpeg \
     libsm6 \
     libxext6 \
+    # Required by soundfile (not pyaudio)
+    libsndfile1 \
     && rm -rf /var/lib/apt/lists/*
 
-# 2. Create app directory first for better caching
+# 2. Create app directory
 WORKDIR /app
 
-# 3. Install Python dependencies
+# 3. Install Python dependencies with explicit constraints
 COPY requirements.txt .
-RUN pip install --no-cache-dir --extra-index-url https://download.pytorch.org/whl/cpu -r requirements.txt && \
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir \
+    --extra-index-url https://download.pytorch.org/whl/cpu \
+    -r requirements.txt \
+    # Explicitly block audio packages
+    --ignore-installed pyaudio sounddevice && \
     python -c "import nltk; nltk.download('punkt', quiet=True)"
 
 # 4. Copy app files
