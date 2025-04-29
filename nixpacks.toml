@@ -3,10 +3,11 @@ nixPkgs = ["python39", "ffmpeg-headless", "gcc"]
 
 [phases.install]
 cmds = [
-  "python -m venv --copies /opt/venv",
+  "python -m venv /opt/venv",
   ". /opt/venv/bin/activate",
-  "pip install --no-cache-dir -r requirements.txt"
+  "pip install --upgrade pip",
+  "pip install --no-cache-dir --use-deprecated=legacy-resolver -r requirements.txt"
 ]
 
-[variables]
-PYTHONUNBUFFERED = "1"
+[start]
+cmd = "gunicorn app:app -b 0.0.0.0:$PORT -w 4 --timeout 120"

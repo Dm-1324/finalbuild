@@ -28,5 +28,5 @@ google-cloud-translate==2.0.1
 # --- Vapi ---
 vapi-python==0.1.7
 
-# --- Prevent PyAudio ---
-pyaudio==0.0.0  # Block accidental install
+# # --- Prevent PyAudio ---
+# pyaudio==0.0.0  # Block accidental install
