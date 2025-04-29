@@ -1,0 +1,8 @@
+/.env
+/.venv
+/audio_outputs
+/english_output.mp3
+/google_creds.json
+/hindi_output.mp3
+/knowledge_base
+/telugu_output.mp3
