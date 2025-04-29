@@ -1,3 +1,7 @@
+# Block problematic packages
+pyaudio==0.0.0 ; python_version >= '3.0'
+sounddevice==0.0.0 ; python_version >= '3.0'
+
 # Core requirements
 Flask==2.3.2
 flask-cors==4.0.0
