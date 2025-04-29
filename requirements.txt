@@ -9,6 +9,7 @@ requests==2.31.0
 faster-whisper==0.9.0
 torch==2.2.0
 soundfile==0.12.1
+numpy==1.26.4  # Explicitly added to ensure compatibility
 
 # --- Text-to-Speech ---
 elevenlabs==0.2.6
@@ -25,4 +26,6 @@ google-cloud-speech==2.21.0
 google-cloud-translate==2.0.1
 
 # --- Vapi ---
-vapi-python==0.1.7  # Replace with exact version if known
+vapi-python==0.1.7
+
+pyaudio
