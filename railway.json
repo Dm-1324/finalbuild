@@ -1,9 +1,0 @@
-{
-  "build": {
-    "builder": "nixpacks",
-    "config": {
-      "startCmd": "gunicorn app:app -b 0.0.0.0:$PORT -w 4 --timeout 120",
-      "installCmd": "apt-get update && apt-get install -y ffmpeg libsm6 libxext6 && pip install --no-cache-dir --extra-index-url https://download.pytorch.org/whl/cpu -r requirements.txt && python -c \"import nltk; nltk.download('punkt', quiet=True)\""
-    }
-  }
-}
